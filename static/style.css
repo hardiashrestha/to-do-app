@@ -9,17 +9,17 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: #343a40; /* Default text color */
+    color: #343a40;
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    background-color: rgba(255, 255, 255, 0.9); 
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 600px; /* Limit the width of the container */
-    margin: auto; /* Center the container */
-    margin-top: 100px; /* Add margin to the top */
+    max-width: 600px; 
+    margin: auto;
+    margin-top: 100px;
 }
 
 h1 {
@@ -51,12 +51,12 @@ h1 {
     width: 100%;
 }
 
-/* Glowing Border Effect */
+
 .glowing-border {
     position: relative;
-    padding: 10px; /* Add padding to create space for the glow */
-    border-radius: 8px; /* Rounded corners */
-    overflow: hidden; /* Hide overflow for the glow effect */
+    padding: 10px; 
+    border-radius: 8px; 
+    overflow: hidden; 
 }
 
 .glowing-border::before {
@@ -66,11 +66,11 @@ h1 {
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 8px; /* Match border radius */
+    border-radius: 8px;
     background: linear-gradient(45deg, rgba(0, 123, 255, 0.5), rgba(255, 0, 150, 0.5), rgba(0, 255, 255, 0.5));
-    z-index: -1; /* Place behind the element */
-    filter: blur(10px); /* Blur effect for the glow */
-    animation: glowing 1.5s infinite alternate; /* Animation for glowing effect */
+    z-index: -1; 
+    filter: blur(10px);
+    animation: glowing 1.5s infinite alternate; 
 }
 
 @keyframes glowing {
@@ -84,36 +84,36 @@ h1 {
     }
 }
 
-/* Dark Mode Styles */
+
 .dark-mode {
-    background-color: #4a4c4e; /* Dark background */
-    color: #f8f9fa; /* Light text color for dark mode */
+    background-color: #4a4c4e; 
+    color: #f8f9fa; 
 }
 
 .dark-mode .container {
-    background-color: rgba(50, 50, 50, 0.9); /* Dark container */
+    background-color: rgba(50, 50, 50, 0.9); 
 }
 
 .dark-mode .list-group-item {
-    background-color: #495057; /* Dark list item */
-    color: #f8f9fa; /* Light text color for list items */
+    background-color: #495057; 
+    color: #f8f9fa; 
 }
 
 .dark-mode .btn-primary {
-    background-color: #007bff; /* Keep primary button color */
+    background-color: #007bff;
 }
 
 .dark-mode .btn-danger {
-    background-color: #dc3545; /* Keep danger button color */
+    background-color: #dc3545;
 }
 
 
 body.dark-mode {
-    color: #f8f9fa; /* Light text color for dark mode */
+    color: #f8f9fa;
 }
 
 body {
-    color: #994bff; /* Dark text color for light mode */
+    color: #994bff;
 }
 
 .btn-primary, .btn-secondary, .btn-danger {
