@@ -1,31 +1,57 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="/add" method="POST" class="mb-4">
+<div class="text-right mb-2">
+    <button id="darkModeToggle" class="btn btn-secondary"><i class="fa-solid fa-star-half-stroke"></i></button>
+</div>
+
+<form action="/" method="POST" class="mb-4">
     <div class="input-group">
-        <input type="text" name="content" class="form-control" placeholder="Add new task" required>
+        <input type="text" name="content" class="form-control glowing-border" placeholder="Add new task" required>
+        <select name="priority" class="form-control glowing-border">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        <input type="date" name="due_date" class="form-control glowing-border">
+        <input type="text" name="category" class="form-control glowing-border" placeholder="Category (e.g., Work)">
         <div class="input-group-append">
             <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i> Add</button>
         </div>
     </div>
 </form>
-<div class="d-flex justify-content-end mb-2">
-    <a href="#" class="btn btn-secondary btn-sm mr-2"><i class="fas fa-sort"></i> Sort</a>
-</div>
+
+<form method="GET" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="search" value="{{ search_query }}" placeholder="Search tasks" class="form-control glowing-border">
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-secondary"><i class="fas fa-search"></i> Search</button>
+        </div>
+    </div>
+</form>
+
 <ul class="list-group">
     {% for task in tasks %}
         <li class="list-group-item d-flex justify-content-between align-items-center {% if task.completed %}completed{% endif %}">
             <div>
                 <input type="checkbox" onchange="location.href='/complete/{{ task.id }}'" {% if task.completed %}checked{% endif %}>
-                {% if task.completed %}
-                    <i class="fas fa-check text-success"></i>
-                {% else %}
-                    <i class="fas fa-clock text-warning"></i>
-                {% endif %}
-                {{ task.content }}
+                {{ task.content }} - <strong>{{ task.priority }}</strong> - Due: {{ task.due_date }} - Category: {{ task.category }}
             </div>
             <a href="/delete/{{ task.id }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
         </li>
     {% endfor %}
 </ul>
+
+<div class="my-projects mt-5 text-center">
+    <h5>Made by Shrestha Hardia</h5>
+    <a href="https://hardiashrestha.vercel.app" class="btn btn-info" target="_blank"><i class="fas fa-user"></i> My Portfolio</a>
+    <a href="https://streamifybyshrestha.vercel.app" class="btn btn-success" target="_blank"><i class="fas fa-play"></i> Streamfy</a>
+</div>
+
+<script>
+    const toggleButton = document.getElementById('darkModeToggle');
+    toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+</script>
 {% endblock %}

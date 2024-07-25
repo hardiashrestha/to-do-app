@@ -1,13 +1,15 @@
+/* General Styles */
 html, body {
     height: 100%;
     margin: 0;
 }
 
 body {
-    background-image: url('https://img.freepik.com/free-vector/gradient-ui-ux-background-illustrated_23-2148401442.jpg'); /* Background image URL */
+    background-image: url('5784989.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    color: #343a40; /* Default text color */
 }
 
 .container {
@@ -21,7 +23,7 @@ body {
 }
 
 h1 {
-    color: #343a40;
+    color: #525457;
 }
 
 .list-group-item {
@@ -35,4 +37,85 @@ h1 {
 
 .btn-danger {
     margin-left: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.btn-primary {
+    width: 100%;
+}
+
+/* Glowing Border Effect */
+.glowing-border {
+    position: relative;
+    padding: 10px; /* Add padding to create space for the glow */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow for the glow effect */
+}
+
+.glowing-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px; /* Match border radius */
+    background: linear-gradient(45deg, rgba(0, 123, 255, 0.5), rgba(255, 0, 150, 0.5), rgba(0, 255, 255, 0.5));
+    z-index: -1; /* Place behind the element */
+    filter: blur(10px); /* Blur effect for the glow */
+    animation: glowing 1.5s infinite alternate; /* Animation for glowing effect */
+}
+
+@keyframes glowing {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #4a4c4e; /* Dark background */
+    color: #f8f9fa; /* Light text color for dark mode */
+}
+
+.dark-mode .container {
+    background-color: rgba(50, 50, 50, 0.9); /* Dark container */
+}
+
+.dark-mode .list-group-item {
+    background-color: #495057; /* Dark list item */
+    color: #f8f9fa; /* Light text color for list items */
+}
+
+.dark-mode .btn-primary {
+    background-color: #007bff; /* Keep primary button color */
+}
+
+.dark-mode .btn-danger {
+    background-color: #dc3545; /* Keep danger button color */
+}
+
+
+body.dark-mode {
+    color: #f8f9fa; /* Light text color for dark mode */
+}
+
+body {
+    color: #994bff; /* Dark text color for light mode */
+}
+
+.btn-primary, .btn-secondary, .btn-danger {
+    color: #fff;
 }
